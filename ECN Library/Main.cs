@@ -33,17 +33,18 @@ namespace ECN
             this.Name     = Environment.UserName;
             this.FilePath = dataPath;
             
-            string data = File.ReadAllText (dataPath + "/" + DataProfileFileName);
+            string data   = File.ReadAllText (dataPath + "/" + DataProfileFileName);
+            string subKey = new DriveInfo (Path.GetPathRoot (dataPath)).TotalSize.ToString ();
 
-            if (this.Xor (data, this.ID).StartsWith (DataProfileBegin))
+            if (this.Xor (data, this.ID + subKey).StartsWith (DataProfileBegin))
             {
                 this.Verified = true;
 
-                this.Data = this.Xor (data, this.ID).Substring (DataProfileBegin.Length);
+                this.Data = this.Xor (data, this.ID + subKey).Substring (DataProfileBegin.Length);
             }
 
-            else if (this.Xor (data, DataProfileStandardKey).StartsWith (DataProfileBegin))
-                this.Data = this.Xor (data, DataProfileStandardKey).Substring (DataProfileBegin.Length);
+            else if (this.Xor (data, DataProfileStandardKey + subKey).StartsWith (DataProfileBegin))
+                this.Data = this.Xor (data, DataProfileStandardKey + subKey).Substring (DataProfileBegin.Length);
         }
 
         public void SetData (string data, bool verify = false, string dataPath = "")
@@ -54,7 +55,9 @@ namespace ECN
             if (dataPath == "")
                 throw new Exception ("You aren't selected saving file path");
 
-            File.WriteAllText (dataPath + "/" + DataProfileFileName, this.Xor (DataProfileBegin + data, verify ? this.ID : DataProfileStandardKey));
+            string subKey = new DriveInfo (Path.GetPathRoot (dataPath)).TotalSize.ToString ();
+
+            File.WriteAllText (dataPath + "/" + DataProfileFileName, this.Xor (DataProfileBegin + data, verify ? this.ID + subKey : DataProfileStandardKey + subKey));
         }
 
         protected string Xor (string text, string key)
