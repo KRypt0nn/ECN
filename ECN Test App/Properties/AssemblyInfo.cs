@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ECN Library")]
-[assembly: AssemblyDescription("Enfesto Community Network")]
+[assembly: AssemblyTitle("ECN Test App")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Enfesto Studio Group")]
-[assembly: AssemblyProduct("ECN Library")]
-[assembly: AssemblyCopyright("Copyright ©  2018 - 2019 Podvirnyy Nikita")]
-[assembly: AssemblyTrademark("ECN")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ECN Test App")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Установка значения False для параметра ComVisible делает типы в этой сборке невидимыми
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("9a645db0-8545-41cc-8da8-b2784dc847d4")]
+[assembly: Guid("a75899ff-1b29-4c3b-8c45-de8fecfbb958")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
